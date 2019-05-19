@@ -3,6 +3,11 @@ This  class is  derived from HttpDoAsClient class provided in hbase-example jar 
 
 **Step 1:** Clone the repo :
 
+    #cd /var/tmp
+    #git clone https://github.com/Raghav-Guru/Hbase-thrift-https-test-client-.git
+    #cd /var/tmp/Hbase-thrift-https-test-client-
+    
+
 **Step 2:** Compile using below command : 
 
     #$JAVA_HOME/bin/javac -cp `hadoop classpath`:/usr/hdp/current/hbase-client/lib/* HttpsDoAsClient.java
