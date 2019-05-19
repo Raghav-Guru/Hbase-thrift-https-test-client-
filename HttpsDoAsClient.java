@@ -64,10 +64,12 @@ public class HttpsDoAsClient {
   private static boolean secure = false;
   static protected String doAsUser = null;
   static protected String principal = null;
+  static protected String schema = "http";
+
 
   public static void main(String[] args) throws Exception {
 
-    if (args.length < 3 || args.length > 4) {
+    if (args.length < 3 || args.length > 5) {
 
       System.out.println("Invalid arguments!");
       System.out.println("Usage: HttpsDoAsClient host port doAsUserName [security=true] [https]");
@@ -77,7 +79,6 @@ public class HttpsDoAsClient {
     host = args[0];
     port = Integer.parseInt(args[1]);
     doAsUser = args[2];
-    schema = "http";
     if (args.length > 3) {
       secure = Boolean.parseBoolean(args[3]);
       principal = getSubject().getPrincipals().iterator().next().getName();
@@ -223,7 +224,7 @@ public class HttpsDoAsClient {
     StringBuffer outputBuffer = new StringBuffer();
     outputBuffer.append("Negotiate ");
     outputBuffer.append(Base64.encodeBytes(outToken).replace("\n", ""));
-    System.out.print("Ticket is: " + outputBuffer);
+    //System.out.print("Ticket is: " + outputBuffer);
     return outputBuffer.toString();
   }
 
@@ -276,7 +277,7 @@ public class HttpsDoAsClient {
             if (ticketCache != null) {
               options.put("ticketCache", ticketCache);
             }
-            options.put("debug", "true");
+            options.put("debug", "false");
 
             return new AppConfigurationEntry[]{
                 new AppConfigurationEntry("com.sun.security.auth.module.Krb5LoginModule",
