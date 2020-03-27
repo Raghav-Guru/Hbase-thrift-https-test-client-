@@ -9,8 +9,12 @@ This  class is  derived from HttpDoAsClient class provided in hbase-example jar 
     
 
 **Step 2:** Compile using below command : 
-
+    For HDP : 
     #$JAVA_HOME/bin/javac -cp `hadoop classpath`:/usr/hdp/current/hbase-client/lib/* HttpsDoAsClient.java
+    
+    For CDH :
+    #$JAVA_HOME/bin/javac -cp `hadoop classpath`:/opt/cloudera/parcels/CDH/jars/* HttpsDoAsClient.java
+ 
 
 **Step 3a:** If kerberized cluster, kinit as hbase user :
 
